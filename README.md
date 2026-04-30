@@ -1,4 +1,5 @@
-# 🚀 Modern Real-Time Chat Application
+# 🚀 Name: MD Shaheenur Rashid
+# 🚀 ID: 232-134-020
 
 ## 🌐 Real-time communication powered by TCP
 
