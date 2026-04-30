@@ -18,12 +18,24 @@ function Chat({ socket, username, room }) {
       };
 
       await socket.emit("send_message", messageData);
-      setMessageList((list) => [...list, messageData]);
       setCurrentMessage("");
     }
   };
 
   useEffect(() => {
+    // Fetch message history from the server
+    fetch(`http://localhost:3001/messages/${room}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setMessageList(data);
+        } else {
+          console.error("Received non-array data:", data);
+          setMessageList([]);
+        }
+      })
+      .catch((err) => console.error("Error fetching history:", err));
+
     const handleReceiveMessage = (data) => {
       setMessageList((list) => [...list, data]);
     };
@@ -32,7 +44,7 @@ function Chat({ socket, username, room }) {
     return () => {
       socket.off("receive_message", handleReceiveMessage);
     };
-  }, [socket]);
+  }, [socket, room]);
 
   return (
     <div className="chat-window">

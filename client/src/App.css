@@ -1,4 +1,4 @@
-﻿@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 :root {
   color-scheme: dark;
@@ -32,8 +32,10 @@ body {
 
 .App {
   min-height: 100vh;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 1.5rem;
 }
 
@@ -248,4 +250,19 @@ body {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+}
+
+.app-title {
+  background: linear-gradient(270deg, var(--primary), var(--accent), #4fc3f7, var(--primary));
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerTitle 5s ease infinite, fadeInUp 0.8s ease both;
+  letter-spacing: 0.05em;
+}
+
+@keyframes shimmerTitle {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }

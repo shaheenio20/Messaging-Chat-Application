@@ -19,9 +19,9 @@ function App() {
 
   return (
     <div className="App">
+      <h1 className="app-title" style={{ textAlign: "center", marginBottom: "1.5rem" }}>THE CHAT APPLICATION</h1>
       {!showChat ? (
         <div className="joinChatContainer">
-          <h3>Join A Chat</h3>
           <input
             type="text"
             placeholder="John..."
