@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="app-title" style={{ textAlign: "center", marginBottom: "1.5rem" }}>THE CHAT APPLICATION</h1>
+      <h1 className="app-title" style={{ textAlign: "center", marginBottom: "1.5rem" }}>Real-time communication powered by TCP</h1>
       {!showChat ? (
         <div className="joinChatContainer">
           <input

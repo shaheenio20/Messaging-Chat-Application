@@ -60,7 +60,7 @@ async function startServer() {
           await messagesCollection.insertOne(doc);
         }
         
-        // Always broadcast message to the room
+        // Broadcast message to everyone in the room (including sender)
         io.to(data.room).emit("receive_message", doc);
       } catch (err) {
         console.error("Failed to process message:", err);
@@ -90,6 +90,7 @@ async function startServer() {
       res.status(500).json({ error: "Failed to fetch messages" });
     }
   });
+
 
   const PORT = process.env.PORT || 3001;
   server.listen(PORT, () => {
